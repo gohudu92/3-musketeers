@@ -8,6 +8,9 @@ const config = new Conf();
 
 updateNotifier({pkg}).notify();
 
+/** @description save the currency entered  
+ * @return {console.log}
+ */
 const saveCurrencies = argv => {
   config.set('defaultFrom', argv[1] || config.get('defaultFrom', 'USD'));
   config.set(
@@ -20,11 +23,17 @@ const saveCurrencies = argv => {
   process.exit(1);
 };
 
+/** @description show the version
+ * @return {console.log}
+ */
 const version = () => {
   console.log(pkg.version);
   process.exit(1);
 };
 
+/** @description if help is called, it shows all of you can do
+ * @return {console.log}
+ */
 const help = () => {
   console.log(`
 Usage:
@@ -56,7 +65,9 @@ Examples:
   `);
   process.exit(1);
 };
-
+/** @description check if there is parameters and call functions associated if there is
+ * @return {console.log}
+ */
 const helpers = argv => {
   // Version
   if (argv.indexOf('--version') !== - 1 || argv.indexOf('-v') !== - 1) {
